@@ -1,3 +1,3 @@
 MyApp.get "/" do
-  erb :"helloworld"
+  erb :"diagnosis/home"
 end
