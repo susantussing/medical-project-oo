@@ -1,6 +1,8 @@
-<h1>What's your name?</h1>
-<form method="post">
-  <input type="text" name="name" required>
-  <button formaction="diagnosis/">Is it cancer?</button>
-  <button formaction="records/list">Medical History</button>
-</form>
+<div class="welcome">
+  <h1 class="welcome__greeting">What's your name?</h1>
+  <form method="post">
+    <input type="text" name="name" required class="welcome__name">
+    <button formaction="diagnosis/" class="welcome__button welcome__button--diagnosis">Is it cancer?</button>
+    <button formaction="records/list" class="welcome__button welcome__button--history">Medical History</button>
+  </form>
+</div>
