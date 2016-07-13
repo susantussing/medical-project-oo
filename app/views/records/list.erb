@@ -1,11 +1,17 @@
-<ul>
+<table class = "result-table">
+	<tr>
+    	<th>Time</th>
+    	<th>Symptoms</th>
+    	<th>Diagnosis</th>
+  	</tr>
 <%  x = Record.getRecords(@name)
 	for i in 0..x.length-1
 %>
-		<li><%= x[i][0] %>: Based on you symptoms of <%= x[i][1].join(", ") %> you have <%= x[i][2]%></li>
+	<tr>
+		<td><%= x[i][0] %></td><td><%= x[i][1].join(", ") %></td><td><%= x[i][2]%></td></tr>
 
 <% end %>
-</ul>
+</table>
 
 <form action='/records/delete' method='POST'>
     <input id="name" type="hidden" name="name" value= "<%= @name %>" >
