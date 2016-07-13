@@ -17,3 +17,10 @@ MyApp.get "/records/delete" do
   @name = session['name']
   erb :"records/delete"
 end
+
+MyApp.get "/records/save" do
+  @name = session['name']
+  @answers = session['answers'] 
+  @diagnosis = Diagnosis.diagnose(@answers)
+  erb :"records/save"
+end

@@ -49,15 +49,39 @@ class Record
 	#
 	# INCOMPLETE
 	#
-	def Record.saveRecord(name, diagnosis)
-		records = File.open("rectest.txt", "a")
+	def Record.saveRecord(name, answers, diagnosis)
+		records = File.open("records.txt", "a")
 		theRecord = name
 		theRecord+=","+Time.now.getutc.to_s
-		#add symptoms
-		theRecord+=","+diagnosis
+		theRecord+=","+Record.getQuestion(answers)
+		theRecord+=","+diagnosis+"\n"
 		records.puts theRecord
 		records.close
 	end
+
+	def Record.getQuestion(answers)
+		symptoms = ""
+		for i in 0..answers.length-1
+			if answers[i]
+				puts i
+				if i==0
+					symptoms+="Cough;"
+				elsif i==1
+					symptoms+="Productive Cough;"
+				elsif i==2
+					symptoms+="Headache;"
+				elsif i==3
+					symptoms+="Headache on one side;"
+				elsif i==4
+					symptoms+="Rash;"
+				elsif i==5
+					symptoms+="Rash on face"
+				end
+			end
+		end
+		return symptoms
+	end
 end
 
-#Record.saveRecord("COLIN", [true,true,true,true,true,true])
+
+#Record.saveRecord("COLIN", [false, nil, true, true], "test")
