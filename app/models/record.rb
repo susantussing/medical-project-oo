@@ -18,4 +18,19 @@ class Record
 		return entries
 	end
 
+	def Record.deleteRecords(name)
+		oldFile = File.open("records.txt", "r")
+		goodLines = []
+		while (line=oldFile.gets)
+			if line.split(",")[0]!=name
+				goodLines.push(line)
+			end
+		end
+		oldFile.close
+		newFile = File.open("records.txt", "w")
+		for line in goodLines
+			newFile.puts line
+		end
+		newFile.close
+	end
 end

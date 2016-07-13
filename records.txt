@@ -1,5 +1,2 @@
-Colin Narans,06122016,Scabs;Lives in Iron Age,Leprosy
 Susan Tussing,06132016,Fever;Bleeding Everywhere;Pet Monkey,Ebola
 Sumeet Jain,06142016,Headache;Insomnia;Weight Loss,Probably Cancer
-Colin Narans,06152016,Cough;Smokes,Definitely Cancer
-Colin Narans,99999999,Anxiety;Lots of Caffeine;WebMD,Hypochondria
