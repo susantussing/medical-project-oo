@@ -1,1 +1,10 @@
-<p><%= @name %></p>
+<p>Diagnosis for:  <%= @name %></p>
+<p>Last answer was: <%= @answer %></p>
+<div class="question">
+<form method="post" action="/diagnosis/">
+  <p><%= @question %></p>
+  <input type="radio" name="answer" value="yes">Yes
+  <input type="radio" name="answer" value="no">No
+  <input type="submit">
+</form>
+</div>
