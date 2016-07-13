@@ -52,9 +52,9 @@ class Record
 	def Record.saveRecord(name, answers)
 		records = File.open("records.txt", "a")
 		theRecord = name
-		#add timestamp
+		theRecord+=","+Time.now.getutc.to_s
 		#add symptoms
-		theRecord+=Diagnosis.diagnose(answers)
+		theRecord+=","+Diagnosis.diagnose(answers)
 		records.puts theRecord
 		records.close
 	end
