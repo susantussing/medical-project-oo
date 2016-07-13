@@ -60,6 +60,8 @@ class Diagnosis
       return "lupus"
     when answers[5] == false
       return "skin cancer"
+    when answers[0] == false && answers[2] == false && answers[4] == false
+      return "still cancer"
     end
 
   end

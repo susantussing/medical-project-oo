@@ -69,4 +69,9 @@ class DiagnosisTest < Minitest::Test
     @answers[5] = false
     assert_equal(Diagnosis.diagnose(@answers), "skin cancer")
   end
+
+  def test_diagnose_still_cancer
+    @answers = [false, nil, false, nil, false, nil]
+    assert_equal(Diagnosis.diagnose(@answers), "still cancer")
+  end
 end
