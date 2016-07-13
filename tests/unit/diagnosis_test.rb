@@ -16,4 +16,13 @@ class DiagnosisTest < Minitest::Test
     assert_equal(Diagnosis.next_question([false, nil, nil, nil, nil, nil]),2)
     assert_equal(Diagnosis.next_question([true, true, nil, nil, nil, nil]), nil)
   end
+
+  def test_diagnose
+    answers = []
+    answers[1] = true
+    assert_equal(Diagnosis.diagnose(answers), "pneumonia")
+    answers = []
+    answers[1] = false
+    assert_equal(Diagnosis.diagnose(answers), "cancer")
+  end
 end

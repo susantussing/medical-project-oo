@@ -44,4 +44,23 @@ class Diagnosis
     end
 
   end
+
+  def Diagnosis.diagnose(answers)
+
+    case 
+    when answers[1] == true
+      return "pneumonia"
+    when answers[1] == false
+      return "cancer"
+    when answers[3] == true
+      return "migraine"
+    when answers[3] == false
+      return "cancer"
+    when answers[5] == true
+      return "lupus"
+    when answers[5] == false
+      return "cancer"
+    end
+
+  end
 end
