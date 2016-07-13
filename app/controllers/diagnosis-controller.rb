@@ -3,22 +3,37 @@ MyApp.get "/" do
 end
 
 MyApp.post "/diagnosis/" do
+  # If we start again from entering the name, reset the session.
   if params[:name]
     session.clear
     session['name'] = params[:name] 
   end
+
+  # If there's no previous question, start at the beginning.
   session['question'] ||= 0
+
   session['answer'] = params[:answer]
+  
+  # Load variables from the session.
   @answer = session['answer']
   @answers = session['answers'] || []
   @question = session['question']
+  
+  # Set the current answer if there is one.
   if @answer == "yes"
     @answers[@question] = true
   elsif @answer == "no"
     @answers[@question] = false
   end
-  @next = Diagnosis.next_question(@answers)
+
+  # Save the current answers.
   session['answers'] = @answers
+  
+  # Find the next question.
+  @next = Diagnosis.next_question(@answers)
+
+  # If there's no next question, we're ready to diagnose!
+  # Otherwise, redirect to the next quiz question.
   if @next == nil
     redirect "/diagnosis/result"
   else
