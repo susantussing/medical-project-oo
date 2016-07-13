@@ -2,9 +2,12 @@ class Diagnosis
   def self.questions
     # stores the list of questions to be asked
     questions = [
-      "0",
-      "1",
-      "2"
+      "Do you have a cough?",
+      "Is it productive?",
+      "Do you have a headache?",
+      "Is your headache located primarily on one side of the head?",
+      "Do you have a rash?",
+      "Is the rash on your face?"
     ]
   end
 
