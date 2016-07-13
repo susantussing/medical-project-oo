@@ -49,13 +49,15 @@ class Record
 	#
 	# INCOMPLETE
 	#
-	def Record.saveRecord(name, answers)
-		records = File.open("records.txt", "a")
+	def Record.saveRecord(name, diagnosis)
+		records = File.open("rectest.txt", "a")
 		theRecord = name
 		theRecord+=","+Time.now.getutc.to_s
 		#add symptoms
-		theRecord+=","+Diagnosis.diagnose(answers)
+		theRecord+=","+diagnosis
 		records.puts theRecord
 		records.close
 	end
 end
+
+#Record.saveRecord("COLIN", [true,true,true,true,true,true])
