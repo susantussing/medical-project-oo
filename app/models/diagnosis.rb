@@ -51,15 +51,15 @@ class Diagnosis
     when answers[1] == true
       return "pneumonia"
     when answers[1] == false
-      return "cancer"
+      return "lung cancer"
     when answers[3] == true
       return "migraine"
     when answers[3] == false
-      return "cancer"
+      return "brain cancer"
     when answers[5] == true
       return "lupus"
     when answers[5] == false
-      return "cancer"
+      return "skin cancer"
     end
 
   end

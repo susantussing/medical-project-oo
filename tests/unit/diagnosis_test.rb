@@ -2,8 +2,7 @@ require 'test_helper'
 
 class DiagnosisTest < Minitest::Test
   def setup
-    super
-    
+    @answers = []
     # This setup will automatically be run before each test below.
   end
 
@@ -41,12 +40,33 @@ class DiagnosisTest < Minitest::Test
     assert_equal(Diagnosis.next_question([false, nil, false, nil, true, true]), nil)
   end
 
-  def test_diagnose
-    answers = []
-    answers[1] = true
-    assert_equal(Diagnosis.diagnose(answers), "pneumonia")
-    answers = []
-    answers[1] = false
-    assert_equal(Diagnosis.diagnose(answers), "cancer")
+  def test_diagnose_pneumonia
+    @answers[1] = true
+    assert_equal(Diagnosis.diagnose(@answers), "pneumonia")
+  end
+
+  def test_diagnose_lung_cancer
+    @answers[1] = false
+    assert_equal(Diagnosis.diagnose(@answers), "lung cancer")
+  end
+
+  def test_diagnose_migraine
+    @answers[3] = true
+    assert_equal(Diagnosis.diagnose(@answers), "migraine")
+  end
+
+  def test_diagnose_brain_cancer
+    @answers[3] = false
+    assert_equal(Diagnosis.diagnose(@answers), "brain cancer")
+  end
+
+  def test_diagnose_lupus
+    @answers[5] = true
+    assert_equal(Diagnosis.diagnose(@answers), "lupus")
+  end
+
+  def test_diagnose_skin_cancer
+    @answers[5] = false
+    assert_equal(Diagnosis.diagnose(@answers), "skin cancer")
   end
 end
