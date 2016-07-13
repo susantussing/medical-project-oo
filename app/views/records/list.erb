@@ -1,0 +1,5 @@
+<%  x = Record.getRecords(@name)
+	for i in 0..x.length-1
+%>
+	<h1><%= x[i][2] %> on <%= x[i][0] %> because <%= x[i][1] %></h1>
+<% end %>
