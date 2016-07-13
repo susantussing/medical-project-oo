@@ -68,4 +68,5 @@ class Diagnosis
     end
 
   end
+
 end

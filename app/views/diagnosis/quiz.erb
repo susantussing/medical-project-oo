@@ -2,7 +2,8 @@
 <p>Last answer was: <%= @answer %></p>
 <div class="question">
 <form method="post" action="/diagnosis/">
-  <p><%= @question %></p>
+  <p>Answers: <%= @answers.to_s %></p>
+  <p><%= @question %>. <%= @question_text %></p>
   <input type="radio" name="answer" value="yes">Yes
   <input type="radio" name="answer" value="no">No
   <input type="submit">

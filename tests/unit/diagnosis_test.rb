@@ -9,6 +9,10 @@ class DiagnosisTest < Minitest::Test
   # Your tests are defined here. Tests must be contained in a method
   # that begins with test_ or it won't work. An example test:
 
+  def test_question_nil
+    assert_equal(Diagnosis.next_question([]),0)
+  end
+
   def test_question_cough
     # If there's no answer to 0, it should be 0.
     assert_equal(Diagnosis.next_question([nil, nil, nil, nil, nil, nil]), 0)
