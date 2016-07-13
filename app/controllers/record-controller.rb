@@ -15,6 +15,7 @@ end
 
 MyApp.get "/records/delete" do
   @name = session['name']
+  Record.deleteRecords(@name)
   erb :"records/delete"
 end
 
@@ -22,5 +23,6 @@ MyApp.get "/records/save" do
   @name = session['name']
   @answers = session['answers'] 
   @diagnosis = Diagnosis.diagnose(@answers)
+  Record.saveRecord(@name, @answers, @diagnosis)
   erb :"records/save"
 end
