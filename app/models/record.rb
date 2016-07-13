@@ -1,5 +1,9 @@
 class Record
 
+	# Returns an array containing user information from the storage file
+	#
+	# name -> string containing the user's name
+	#
 	def Record.getRecords(name)
 		file = File.open("records.txt", "r")
 		i=0
@@ -18,6 +22,10 @@ class Record
 		return entries
 	end
 
+	# Deletes all lines containing user's name in the storage file
+	#
+	# name -> string containing the user's name
+	#
 	def Record.deleteRecords(name)
 		oldFile = File.open("records.txt", "r")
 		goodLines = []
@@ -32,5 +40,22 @@ class Record
 			newFile.puts line
 		end
 		newFile.close
+	end
+
+	# Writes a record to the storage file
+	#
+	# name -> string containing the user's name
+	# answers -> an array containing the user's answers
+	#
+	# INCOMPLETE
+	#
+	def Record.saveRecord(name, answers)
+		records = File.open("records.txt", "a")
+		theRecord = name
+		theRecord+=","+Time.now.getutc.to_s
+		#add symptoms
+		theRecord+=","+Diagnosis.diagnose(answers)
+		records.puts theRecord
+		records.close
 	end
 end

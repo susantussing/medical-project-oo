@@ -12,3 +12,17 @@ body {
   background-image: url('/img/background.jpg');
   background-position: 40% 40%;
 }
+
+.result-table {
+    border-collapse: collapse;
+}
+
+.result-table td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+.result-table tr:nth-child(even) {
+    background-color: #dddddd;
+}
