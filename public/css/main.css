@@ -90,5 +90,8 @@ body {
 .question__text {
   font-size: 24px;
   margin-bottom: 32px;
+}
 
+.question__radiogroup {
+  margin-bottom: 12px;
 }
