@@ -11,6 +11,7 @@ html {
 body {
   background-image: url('/img/background.jpg');
   background-position: 40% 40%;
+  font-size: 18px;
 }
 
 .result-table {
@@ -71,5 +72,30 @@ body {
 }
 
 .welcome__button:hover {
+  background-color: #74c0c8;
+}
+
+.question {
+  text-align: center;
+}
+
+.question__text {
+  font-size: 24px;
+  margin-bottom: 32px;
+
+}
+
+.question__button {
+  border: 0;
+  border-radius: 5px;
+  width: 180px;
+  background-color: white;
+  font-size: 18px;
+  padding: 8px;
+  margin: 0 auto;
+  margin-top: 24px;
+}
+
+.question__button:hover {
   background-color: #74c0c8;
 }
