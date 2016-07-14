@@ -13,9 +13,13 @@ body {
   background-position: 40% 40%;
   font-size: 18px;
 }
-
+.title {
+  font-size: 24px;
+  margin-bottom: 24px;
+}
 .result-table {
     border-collapse: collapse;
+    margin-bottom: 32px;
 }
 
 .result-table td, th {
@@ -25,7 +29,7 @@ body {
 }
 
 .result-table tr:nth-child(even) {
-    background-color: #dddddd;
+    background-color: #F2D2BD;
 }
 
 .main {
@@ -60,6 +64,7 @@ body {
 }
 
 .button {
+  display: inline-block;
   width: 185px;
   margin: 5px;
   padding: 8px;
@@ -69,6 +74,9 @@ body {
   outline: none;
   font-size: 18px;
   font-family: Lato, sans-serif;
+  text-decoration: none;
+  color: black;
+  text-align: center;
 }
 
 .button:hover {
