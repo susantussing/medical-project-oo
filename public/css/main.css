@@ -95,3 +95,23 @@ body {
 .question__radiogroup {
   margin-bottom: 12px;
 }
+
+.header {
+  position: absolute;
+  top: 32px;
+  left: 32px;
+}
+
+.header__icon {
+  height: 48px;
+  width: 48px;
+  vertical-align: middle;
+  opacity: 0.25;
+}
+
+.header__link {
+  text-decoration: none;
+  color: black;
+  position: relative;
+  left: -28px;
+}
