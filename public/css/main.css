@@ -59,7 +59,7 @@ body {
   text-align: center;
 }
 
-.welcome__button {
+.button {
   width: 185px;
   margin: 5px;
   padding: 8px;
@@ -71,7 +71,7 @@ body {
   font-family: Lato, sans-serif;
 }
 
-.welcome__button:hover {
+.button:hover {
   background-color: #74c0c8;
 }
 
@@ -83,19 +83,4 @@ body {
   font-size: 24px;
   margin-bottom: 32px;
 
-}
-
-.question__button {
-  border: 0;
-  border-radius: 5px;
-  width: 180px;
-  background-color: white;
-  font-size: 18px;
-  padding: 8px;
-  margin: 0 auto;
-  margin-top: 24px;
-}
-
-.question__button:hover {
-  background-color: #74c0c8;
 }
