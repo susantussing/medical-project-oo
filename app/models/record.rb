@@ -46,8 +46,7 @@ class Record
 	#
 	# name -> string containing the user's name
 	# answers -> an array containing the user's answers
-	#
-	# INCOMPLETE
+	# diagnosis -> string containing the diagnosis
 	#
 	def Record.saveRecord(name, answers, diagnosis)
 		records = File.open("records.txt", "a")
@@ -59,6 +58,10 @@ class Record
 		records.close
 	end
 
+	# Gets the user's symptoms based on their answers
+	#
+	# answers -> an array containing the user's answers
+	#
 	def Record.getQuestion(answers)
 		symptoms = ""
 		for i in 0..answers.length-1
@@ -82,6 +85,3 @@ class Record
 		return symptoms
 	end
 end
-
-
-#Record.saveRecord("COLIN", [false, nil, true, true], "test")
