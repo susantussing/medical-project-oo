@@ -34,6 +34,7 @@ MyApp.post "/diagnosis/" do
 
   # If we have a diagnosis, redirect to results page.
   # Otherwise, redirect to the next quiz question.
+
   if Diagnosis.diagnose(@answers)
     redirect "/diagnosis/result"
   else
@@ -48,7 +49,7 @@ MyApp.get "/diagnosis/quiz" do
   @answers = session['answers'] 
   @question = session['question']
 
-  @question_text = Diagnosis.symptoms[@question][1]
+  @question_text = Record.getQuestion(@question)
 
   erb :"diagnosis/quiz"
 end

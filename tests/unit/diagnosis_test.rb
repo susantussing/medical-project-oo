@@ -15,6 +15,13 @@ class DiagnosisTest < Minitest::Test
     assert_equal(Diagnosis.diagnose(@answers),"Lung Cancer")
   end
 
+  def test_also_lung_cancer
+    @answers[0] = true
+    @answers[1] = true
+    @answers[2] = true
+    assert_equal(Diagnosis.diagnose(@answers),"Lung Cancer")
+  end
+
   def test_skin_cancer
     @answers[1] = true
     @answers[3] = true
