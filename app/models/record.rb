@@ -202,7 +202,17 @@ class Record
 		end
 		i=0
 		while Record.diseaseSymptomsLine(i)
-			if check==Record.diseaseSymptomsLine(i)
+			isDisease=true
+			symps = Record.diseaseSymptomsLine(i)
+			for symp in symps
+				if check.index(symp).nil?
+					isDisease=false
+				end
+			end
+#			if check==Record.diseaseSymptomsLine(i)
+#				return i
+#			end
+			if isDisease
 				return i
 			end
 			i+=1
