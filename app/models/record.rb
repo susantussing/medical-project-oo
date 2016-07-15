@@ -48,11 +48,18 @@ class Record
 	# answers -> an array containing the user's answers
 	# diagnosis -> string containing the diagnosis
 	#
-	def Record.saveRecord(name, answers, diagnosis)
+	def Record.saveRecord(name, diagnosis)
 		records = File.open("records.txt", "a")
 		theRecord = name
 		theRecord+=","+Time.now.getutc.to_s
-		theRecord+=","+Record.getQuestion(answers)
+		symptoms = Record.diseaseSymptoms(diagnosis)
+		theRecord+=","
+		if !symptoms.nil?
+			for symp in symptoms
+				theRecord+=symp + ";"
+			end
+		end
+#		theRecord+=","+Record.getQuestion(answers)
 		theRecord+=","+diagnosis+"\n"
 		records.puts theRecord
 		records.close
@@ -84,4 +91,69 @@ class Record
 		end
 		return symptoms
 	end
+
+	################NEW STUFF###################
+
+	def Record.getSymptom(line)
+		file = File.open("symptoms.txt", "r")
+		line.times {file.gets()}
+		symptom = file.gets().split(",")[0]
+		file.close()
+		return symptom
+	end
+
+	def Record.getQuestion(line)
+		file = File.open("symptoms.txt", "r")
+		line.times {file.gets()}
+		question = file.gets().split(",")[1]
+		file.close()
+		return question
+	end
+
+	def Record.lineOf(entry)
+		file = File.open("symptoms.txt", "r")
+		i=0
+		while (line=file.gets)
+			line=line.split(",")
+			if (line[0]==entry)||(line[1]==entry)
+				file.close()
+				return i
+			end
+			i+=1
+		end
+	end
+
+	def Record.diseaseLine(disease)
+		file = File.open("diseases.txt")
+		i=0
+		while (line=file.gets)
+			line=line.split(",")
+			if (line[0]==disease)
+				file.close()
+				return i
+			end
+			i+=1
+		end
+	end
+
+	def Record.diseaseSymptoms(disease)
+		file = File.open("diseases.txt")
+		i=0
+		while (line=file.gets)
+			line=line.split(",")
+			if (line[0]==disease)
+				file.close()
+				if !line[1].nil?
+					symptoms = line[1].split(";")
+					for j in 0..symptoms.length-1
+						symptoms[j]=Record.getSymptom(symptoms[j].to_i)
+					end
+				end
+				return symptoms
+			end
+			i+=1
+		end
+	end
+
 end
+

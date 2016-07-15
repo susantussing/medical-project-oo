@@ -1,0 +1,7 @@
+Lung Cancer,0
+Pneumonia,0;1
+Brain cancer;2
+Migraine,2;3
+Skin cancer,4
+Lupus,4;5
+Still cancer,

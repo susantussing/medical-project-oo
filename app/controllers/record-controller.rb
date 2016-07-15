@@ -23,6 +23,6 @@ MyApp.get "/records/save" do
   @name = session['name']
   @answers = session['answers'] 
   @diagnosis = Diagnosis.diagnose(@answers)
-  Record.saveRecord(@name, @answers, @diagnosis)
+  Record.saveRecord(@name, @diagnosis)
   erb :"records/save"
 end

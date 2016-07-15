@@ -1,0 +1,6 @@
+Cough,Do you have a cough?
+Productive Cough,Is it Productive?
+Headache,Do you have a headache?
+Headache on one side,Is your headache located primarily on one side of the head?
+Rash,Do you have a rash?
+Rash on face,Is the rash on your face?
