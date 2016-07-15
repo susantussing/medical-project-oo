@@ -1,6 +1,8 @@
 Cough,Do you have a cough?
-Productive Cough,Is it Productive?
+Fever,Do you have a fever?
 Headache,Do you have a headache?
-Headache on one side,Is your headache located primarily on one side of the head?
 Rash,Do you have a rash?
-Rash on face,Is the rash on your face?
+Nausea,Are you nauseous?
+Runny Nose,Do you have a runny nose?
+Hair Loss,Are you losing your hair?
+Dry Mouth,Do you have dry mouth?"
