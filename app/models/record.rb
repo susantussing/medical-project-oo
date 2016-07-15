@@ -1,11 +1,17 @@
 class Record
 
+	@history = "records.txt"
+
+	def Record.setHistory(filename)
+		@history = filename
+	end
+
 	# Returns an array containing user information from the storage file
 	#
 	# name -> string containing the user's name
 	#
 	def Record.getRecords(name)
-		file = File.open("records.txt", "r")
+		file = File.open(@history, "r")
 		i=0
 		entries=[]
 		while (line=file.gets)
@@ -27,7 +33,7 @@ class Record
 	# name -> string containing the user's name
 	#
 	def Record.deleteRecords(name)
-		oldFile = File.open("records.txt", "r")
+		oldFile = File.open(@history, "r")
 		goodLines = []
 		while (line=oldFile.gets)
 			if line.split(",")[0]!=name
@@ -35,7 +41,7 @@ class Record
 			end
 		end
 		oldFile.close
-		newFile = File.open("records.txt", "w")
+		newFile = File.open(@history, "w")
 		for line in goodLines
 			newFile.puts line
 		end
@@ -49,7 +55,7 @@ class Record
 	# diagnosis -> string containing the diagnosis
 	#
 	def Record.saveRecord(name, diagnosis)
-		records = File.open("records.txt", "a")
+		records = File.open(@history, "a")
 		theRecord = name
 		theRecord+=","+Time.now.getutc.to_s
 		symptoms = Record.diseaseSymptoms(diagnosis)
@@ -65,34 +71,7 @@ class Record
 		records.close
 	end
 
-	# Gets the user's symptoms based on their answers
-	#
-	# answers -> an array containing the user's answers
-	#
-	def Record.getQuestion(answers)
-		symptoms = ""
-		for i in 0..answers.length-1
-			if answers[i]
-				puts i
-				if i==0
-					symptoms+="Cough;"
-				elsif i==1
-					symptoms+="Productive Cough;"
-				elsif i==2
-					symptoms+="Headache;"
-				elsif i==3
-					symptoms+="Headache on one side;"
-				elsif i==4
-					symptoms+="Rash;"
-				elsif i==5
-					symptoms+="Rash on face"
-				end
-			end
-		end
-		return symptoms
-	end
-
-	################NEW STUFF###################
+##########################NEW STUFF############################
 
 	# Returns the symptom at a line number
 	#
@@ -226,5 +205,3 @@ class Record
 		return nil
 	end
 end
-
-puts Record.findDisease([nil,2,3,nil])
