@@ -197,10 +197,34 @@ class Record
 		symptoms = file.gets().split(",")[1]
 		if !symptoms.nil?
 			symptoms = symptoms.split(";")
+			symptoms.each_index {|x| symptoms[x]=symptoms[x].to_i}
 		end
 		file.close()
 		return symptoms
 	end
+
+	# Returns the line number the disease for the given symptoms
+	#
+	# symptoms -> an array containing the numbers of true questions
+	#
+	def Record.findDisease(symptoms)
+		check = []
+		if !symptoms.nil?
+			for symp in symptoms
+				if !symp.nil?
+					check.push(symp)
+				end
+			end
+		end
+		i=0
+		while Record.diseaseSymptomsLine(i)
+			if check==Record.diseaseSymptomsLine(i)
+				return i
+			end
+			i+=1
+		end
+		return nil
+	end
 end
 
-puts Record.diseaseSymptomsLine(3)
+puts Record.findDisease([nil,2,3,nil])
