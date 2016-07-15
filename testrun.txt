@@ -1,2 +1,21 @@
+<<<<<<< HEAD
 TestName,2016-07-15 16:26:46 UTC,,pneumonia
 TestName,2016-07-15 16:26:46 UTC,,still cancer
+=======
+TestName,2016-07-15 17:40:18 UTC,,pneumonia
+TestName,2016-07-15 17:40:18 UTC,,still cancer
+TestName,2016-07-15 17:40:55 UTC,,pneumonia
+TestName,2016-07-15 17:40:55 UTC,,still cancer
+TestName,2016-07-15 17:43:10 UTC,,pneumonia
+TestName,2016-07-15 17:43:10 UTC,,still cancer
+TestName,2016-07-15 17:43:26 UTC,,pneumonia
+TestName,2016-07-15 17:43:26 UTC,,still cancer
+TestName,2016-07-15 17:47:39 UTC,,pneumonia
+TestName,2016-07-15 17:47:39 UTC,,still cancer
+TestName,2016-07-15 17:48:04 UTC,,pneumonia
+TestName,2016-07-15 17:48:04 UTC,,still cancer
+TestName,2016-07-15 17:48:14 UTC,,pneumonia
+TestName,2016-07-15 17:48:14 UTC,,still cancer
+TestName,2016-07-15 17:48:54 UTC,,pneumonia
+TestName,2016-07-15 17:48:54 UTC,,still cancer
+>>>>>>> bcaf22b9273edeff1294b10e5962b0e773a94ecf

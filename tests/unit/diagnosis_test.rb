@@ -27,7 +27,7 @@ class DiagnosisTest < Minitest::Test
   end
 
   def test_default_diagnosis
-    @answers = [false, false, false, false, false, false, false]
+    @answers = [false, false, false, false, false, false, false, false]
     assert_equal(Diagnosis.diagnose(@answers), "some kind of cancer")
   end
 end
