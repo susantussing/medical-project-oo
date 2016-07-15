@@ -19,3 +19,11 @@ TestName,2016-07-15 17:48:14 UTC,,still cancer
 TestName,2016-07-15 17:48:54 UTC,,pneumonia
 TestName,2016-07-15 17:48:54 UTC,,still cancer
 >>>>>>> bcaf22b9273edeff1294b10e5962b0e773a94ecf
+TestName,2016-07-15 17:54:20 UTC,,pneumonia
+TestName,2016-07-15 17:54:20 UTC,,still cancer
+TestName,2016-07-15 17:58:08 UTC,,pneumonia
+TestName,2016-07-15 17:58:08 UTC,,still cancer
+TestName,2016-07-15 18:00:57 UTC,,pneumonia
+TestName,2016-07-15 18:00:57 UTC,,still cancer
+TestName,2016-07-15 18:03:25 UTC,,pneumonia
+TestName,2016-07-15 18:03:25 UTC,,still cancer

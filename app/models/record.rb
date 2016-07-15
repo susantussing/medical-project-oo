@@ -158,6 +158,9 @@ class Record
 	# line -> line number of disease
 	#
 	def Record.getDisease(line)
+		if line.nil?
+			return nil
+		end
 		file = File.open("diseases.txt", "r")
 		line.times {file.gets()}
 		disease = file.gets().split(",")[0]
@@ -172,7 +175,10 @@ class Record
 	def Record.diseaseSymptomsLine(line)
 		file = File.open("diseases.txt", "r")
 		line.times {file.gets()}
-		symptoms = file.gets().split(",")[1]
+		temp = file.gets()
+		if !temp.nil?
+			symptoms = temp.split(",")[1]
+		end
 		if !symptoms.nil?
 			symptoms = symptoms.split(";")
 			symptoms.each_index {|x| symptoms[x]=symptoms[x].to_i}
