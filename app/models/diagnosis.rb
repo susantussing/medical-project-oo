@@ -8,7 +8,8 @@ class Diagnosis
       ["Rash", "Do you have a rash?"],
       ["Nausea", "Are you nauseous?"],
       ["Runny Nose", "Do you have a runny nose?"],
-      ["Hair Loss", "Are you losing your hair?"]
+      ["Hair Loss", "Are you losing your hair?"],
+      ["Dry Mouth", "Do you have dry mouth?"]
     ]
   end
 
@@ -16,6 +17,8 @@ class Diagnosis
     diseases = [
       ["Lung Cancer", [0, 2]],
       ["Skin Cancer", [1, 3, 4]],
+      ["Flu", [0, 1, 2, 5]],
+      ["Lupus", [1, 3, 7]],
     ]
   end
 
@@ -31,29 +34,38 @@ class Diagnosis
       
   end
 
+  # def Diagnosis.diagnose(answers)
+
+  #   Diagnosis.diseases.each do |disease|
+  #     # for each disease, check to see if all symptoms are true
+  #     diag = true
+  #     while diag == true
+  #       disease[1].each do |i|
+  #         # If this symptom is not present, this isn't the right diagnosis.
+  #         if !answers[i]
+  #           diag = false
+  #         end
+  #       end
+  #       # If all symptoms are present, we have a diagnosis.
+  #       if diag
+  #         return disease[0]
+  #       end
+  #     end
+  #   end
+  #   # if no official diagnosis but all questions answered, return default
+  #   if answers.length == Diagnosis.symptoms.length
+  #     return Diagnosis.default
+  #   end
+
+  # end
+
   def Diagnosis.diagnose(answers)
-
-    Diagnosis.diseases.each do |disease|
-      # for each disease, check to see if all symptoms are true
-      diag = true
-      while diag == true
-        disease[1].each do |i|
-          # If this symptom is not present, this isn't the right diagnosis.
-          if !answers[i]
-            diag = false
-          end
-        end
-        # If all symptoms are present, we have a diagnosis.
-        if diag
-          return disease[0]
-        end
-      end
+    symptoms = answers.map.with_index { |a, i| a ? i : nil}.compact
+    disease = Record.getDisease(Record.findDisease(symptoms))
+    if disease.nil? && answers.length == Diagnosis.symptoms.length
+      disease = Diagnosis.default
     end
-    # if no official diagnosis but all questions answered, return default
-    if answers.length == Diagnosis.symptoms.length
-      return Diagnosis.default
-    end
-
+    return disease
   end
 
 end
