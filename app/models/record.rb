@@ -94,6 +94,10 @@ class Record
 
 	################NEW STUFF###################
 
+	# Returns the symptom at a line number
+	#
+	# line -> line number of the symptom
+	#
 	def Record.getSymptom(line)
 		file = File.open("symptoms.txt", "r")
 		line.times {file.gets()}
@@ -102,6 +106,10 @@ class Record
 		return symptom
 	end
 
+	# Returns the question at a line number
+	#
+	# line -> line number of the question
+	#
 	def Record.getQuestion(line)
 		file = File.open("symptoms.txt", "r")
 		line.times {file.gets()}
@@ -110,6 +118,10 @@ class Record
 		return question
 	end
 
+	# Returns line number of symptom or question
+	#
+	# entry -> string of symptom or question
+	#
 	def Record.lineOf(entry)
 		file = File.open("symptoms.txt", "r")
 		i=0
@@ -123,6 +135,10 @@ class Record
 		end
 	end
 
+	# Returns line number of disease
+	#
+	# disease -> string containing disease
+	#
 	def Record.diseaseLine(disease)
 		file = File.open("diseases.txt")
 		i=0
@@ -136,6 +152,10 @@ class Record
 		end
 	end
 
+	# Returns an array of strings of symptoms for a disase
+	#
+	# disease -> string containing disease
+	#
 	def Record.diseaseSymptoms(disease)
 		file = File.open("diseases.txt")
 		i=0
@@ -155,5 +175,32 @@ class Record
 		end
 	end
 
+	# Returns disease at line number
+	#
+	# line -> line number of disease
+	#
+	def Record.getDisease(line)
+		file = File.open("diseases.txt", "r")
+		line.times {file.gets()}
+		disease = file.gets().split(",")[0]
+		file.close()
+		return disease
+	end
+
+	# Returns an array of line numbers of symptoms for a disease
+	#
+	# line -> line number of disease
+	#
+	def Record.diseaseSymptomsLine(line)
+		file = File.open("diseases.txt", "r")
+		line.times {file.gets()}
+		symptoms = file.gets().split(",")[1]
+		if !symptoms.nil?
+			symptoms = symptoms.split(";")
+		end
+		file.close()
+		return symptoms
+	end
 end
 
+puts Record.diseaseSymptomsLine(3)
