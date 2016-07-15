@@ -1,26 +1,26 @@
 class Diagnosis
-  def self.symptoms
-    # stores the list of questions to be asked
-    symptoms = [
-      ["Cough", "Do you have a cough?"],
-      ["Fever", "Do you have a fever?"],
-      ["Headache", "Do you have a headache?"],
-      ["Rash", "Do you have a rash?"],
-      ["Nausea", "Are you nauseous?"],
-      ["Runny Nose", "Do you have a runny nose?"],
-      ["Hair Loss", "Are you losing your hair?"],
-      ["Dry Mouth", "Do you have dry mouth?"]
-    ]
-  end
+  # def self.symptoms
+  #   # stores the list of questions to be asked
+  #   symptoms = [
+  #     ["Cough", "Do you have a cough?"],
+  #     ["Fever", "Do you have a fever?"],
+  #     ["Headache", "Do you have a headache?"],
+  #     ["Rash", "Do you have a rash?"],
+  #     ["Nausea", "Are you nauseous?"],
+  #     ["Runny Nose", "Do you have a runny nose?"],
+  #     ["Hair Loss", "Are you losing your hair?"],
+  #     ["Dry Mouth", "Do you have dry mouth?"]
+  #   ]
+  # end
 
-  def self.diseases
-    diseases = [
-      ["Lung Cancer", [0, 2]],
-      ["Skin Cancer", [1, 3, 4]],
-      ["Flu", [0, 1, 2, 5]],
-      ["Lupus", [1, 3, 7]],
-    ]
-  end
+  # def self.diseases
+  #   diseases = [
+  #     ["Lung Cancer", [0, 2]],
+  #     ["Skin Cancer", [1, 3, 4]],
+  #     ["Flu", [0, 1, 2, 5]],
+  #     ["Lupus", [1, 3, 7]],
+  #   ]
+  # end
 
   def self.default
     default = "some kind of cancer"
@@ -29,7 +29,10 @@ class Diagnosis
   def Diagnosis.next_question(answers)
     # takes an array of the current answers
     # check for diagnosis should occur before calling this
-
+    next_question = answers.length
+    if answers.length >= Record.numSymptoms || Diagnosis.diagnose(answers)
+      return nil
+    end
     return answers.length
       
   end
@@ -62,7 +65,7 @@ class Diagnosis
   def Diagnosis.diagnose(answers)
     symptoms = answers.map.with_index { |a, i| a ? i : nil}.compact
     disease = Record.getDisease(Record.findDisease(symptoms))
-    if disease.nil? && answers.length == Diagnosis.symptoms.length
+    if disease.nil? && answers.length == Record.numSymptoms
       disease = Diagnosis.default
     end
     return disease

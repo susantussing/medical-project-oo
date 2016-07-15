@@ -219,4 +219,9 @@ class Record
 		end
 		return nil
 	end
+
+	def Record.numSymptoms()
+		file = File.open("symptoms.txt", "r")
+		return file.readlines.count
+	end
 end
