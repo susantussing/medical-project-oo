@@ -51,7 +51,6 @@ class Record
 	# Writes a record to the storage file
 	#
 	# name -> string containing the user's name
-	# answers -> an array containing the user's answers
 	# diagnosis -> string containing the diagnosis
 	#
 	def Record.saveRecord(name, diagnosis)
