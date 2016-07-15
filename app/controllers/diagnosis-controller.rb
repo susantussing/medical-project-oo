@@ -32,9 +32,9 @@ MyApp.post "/diagnosis/" do
   # Find the next question.
   @next = Diagnosis.next_question(@answers)
 
-  # If there's no next question, we're ready to diagnose!
+  # If we have a diagnosis, redirect to results page.
   # Otherwise, redirect to the next quiz question.
-  if @next == nil
+  if Diagnosis.diagnose(@answers)
     redirect "/diagnosis/result"
   else
     session['question'] = @next
@@ -48,7 +48,7 @@ MyApp.get "/diagnosis/quiz" do
   @answers = session['answers'] 
   @question = session['question']
 
-  @question_text = Diagnosis.questions[@question]
+  @question_text = Diagnosis.symptoms[@question][1]
 
   erb :"diagnosis/quiz"
 end
