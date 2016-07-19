@@ -4,4 +4,13 @@
     <button type='submit' class="button">Save Diagnosis</button>
 </form>
 
+<form method="post">
+    <input type="text" name="street" required class="welcome__name" placeholder="Street Address">
+    <input type="text" name="city" required class="welcome__name" placeholder="City">
+    <input type="text" name="state" required class="welcome__name" placeholder="State">
+    <input type="text" name="zip" required class="welcome__name" placeholder="Zip">
+    <button formaction="/places/list" class="button">Find Nearby Medical Providers</button>
+ </form>
+
 <a href='/' class="button">Return Home</a>
+
