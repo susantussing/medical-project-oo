@@ -4,7 +4,10 @@ class Places
 
   def Places.get_clinics (latitude, longitude)
     response = HTTParty.get("https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=#{API_KEY}&location=#{latitude},#{longitude}&type=hospital&rankby=distance")
-    return response["results"]
+
+    places = response["results"]
+    places.map! {|place| Places.get_detail(place["place_id"])}
+    return places
   end
 
   def Places.get_detail (placeID)
