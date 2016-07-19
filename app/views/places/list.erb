@@ -1,7 +1,10 @@
 <ul class="hospitals">
   <% @places.each do |place| %>
-    <li class="hospitals__item"><%= place["name"] %></li>
+    <li class="hospital">
+      <!-- <%= place %> -->
+      <p class="hospital__name"><%= place["name"] %></p>
+      <p class="hospital__address"><%= place["formatted_address"] %></p>
+      <a class="hospital__directions" href="<%= place["url"] %>">Get Directions</a>
+    </li>
   <% end %>
 </ul>
-
-
