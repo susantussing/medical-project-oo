@@ -120,3 +120,51 @@ h1 {
   position: relative;
   left: -28px;
 }
+
+.address__street {
+  width: 250px;
+  height: 32px;
+  border-radius: 5px;
+  border: 0;
+  font-size: 18px;
+  padding: 8px;
+  outline: none;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.address__city {
+  width: 200px;
+  height: 32px;
+  border-radius: 5px;
+  border: 0;
+  font-size: 18px;
+  padding: 8px;
+  outline: none;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.address__state {
+  width: 100px;
+  height: 32px;
+  border-radius: 5px;
+  border: 0;
+  font-size: 18px;
+  padding: 8px;
+  outline: none;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.address__zip {
+  width: 100px;
+  height: 32px;
+  border-radius: 5px;
+  border: 0;
+  font-size: 18px;
+  padding: 8px;
+  outline: none;
+  margin-bottom: 32px;
+  text-align: center;
+}
