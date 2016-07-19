@@ -7,3 +7,4 @@ Colin,2016-07-15 18:25:28 UTC,,some kind of cancer
 Susan,2016-07-15 19:21:53 UTC,Fever;Rash;Nausea;,Skin Cancer
 Susan,2016-07-15 19:22:15 UTC,Fever;Rash;Nausea;,Skin Cancer
 >>>>>>> 002fc443afd37b62703f63187af8adb33f3b34ce
+t,2016-07-19 17:55:28 UTC,Cough;Headache;,Lung Cancer
