@@ -1,3 +1,7 @@
-<% @places.each do |place| %>
-  <p><%= place["name"] %></p>
-<% end %>
+<ul class="hospitals">
+  <% @places.each do |place| %>
+    <li class="hospitals__item"><%= place["name"] %></li>
+  <% end %>
+</ul>
+
+
