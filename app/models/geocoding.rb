@@ -23,8 +23,8 @@ class Geo
 
 end
 
-#street = "1258 S 13th St"
-#city = "Omaha"
-#state = "NE"
+#street = ""
+#city = ""
+#state = ""
 #zip = "68108"
 #puts Geo.getLocation(street, city, state, zip)
