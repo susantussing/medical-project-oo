@@ -7,7 +7,7 @@
 <form method="post">
     <input type="text" name="street" class="address__street" placeholder="Street Address">
     <input type="text" name="city" class="address__city" placeholder="City">
-	<input list="state">
+	<input list="state" name="state" class="address__state" placeholder="State">
 	<datalist id="state">
 		<option value="AL">Alabama</option>
 		<option value="AK">Alaska</option>
@@ -62,7 +62,7 @@
 		<option value="WY">Wyoming</option>
 	</datalist>	
     <input type="text" name="zip" class="address__zip" placeholder="Zip">
-    <button formaction="/places/list" class="button">Find Nearby Medical Providers</button>
+    <button formaction="/places" class="button">Find Nearby Medical Providers</button>
  </form>
 
 <a href='/' class="button">Return Home</a>
