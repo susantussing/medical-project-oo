@@ -168,3 +168,24 @@ h1 {
   margin-bottom: 32px;
   text-align: center;
 }
+
+.hospitals {
+  max-width: 800px;
+}
+
+.hospitals__intro {
+  margin-bottom: 24px;
+}
+
+.hospital {
+  margin-bottom: 16px;
+}
+
+.hospital__name {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.hospital__directions {
+  float: right;
+}

@@ -1,10 +1,15 @@
-<ul class="hospitals">
-  <% @places.each do |place| %>
-    <li class="hospital">
-      <!-- <%= place %> -->
-      <p class="hospital__name"><%= place["name"] %></p>
-      <p class="hospital__address"><%= place["formatted_address"] %></p>
-      <a class="hospital__directions" href="<%= place["url"] %>">Get Directions</a>
-    </li>
-  <% end %>
-</ul>
+<div class="hospitals">
+  <p class="hospitals__intro ">Here's a list of nearby hospitals and health clinics.  Please consult a physician about any real health concerns you have.</p>
+
+  <ul>
+    <% @places.each do |place| %>
+      <li class="hospital">
+        <!-- <%= place %> -->
+        <a class="button hospital__directions" target="_blank" href="<%= place["url"] %>">Get Directions</a>
+        <p class="hospital__name"><%= place["name"] %></p>
+        <p class="hospital__address"><%= place["formatted_address"] %></p>
+        
+      </li>
+    <% end %>
+  </ul>
+</div>
