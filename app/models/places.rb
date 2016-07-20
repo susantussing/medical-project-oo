@@ -10,8 +10,11 @@ class Places
     return places
   end
 
-  def Places.get_detail (placeID)
-    response = HTTParty.get("https://maps.googleapis.com/maps/api/place/details/json?key=#{API_KEY}&placeid=#{placeID}")
-    return response["result"]
+  def Places.get_detail (place_id)
+    response = HTTParty.get("https://maps.googleapis.com/maps/api/place/details/json?key=#{API_KEY}&placeid=#{place_id}")
+    result = response["result"]
+    detail = {name: result["name"], address: result["formatted_address"], url: result["url"]}
+    return detail
   end
+
 end
