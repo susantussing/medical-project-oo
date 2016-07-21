@@ -224,4 +224,42 @@ class Record
 		file = File.open("symptoms.txt", "r")
 		return file.readlines.count
 	end
+
+	def Record.listDiseases()
+		file = File.open("diseases.txt", "r")
+		diseases = []
+		file.each_line.with_index do |line, index|
+			disease = Record.getDisease(index)
+			symptoms = Record.diseaseSymptoms(name)
+			disease = {
+				"id" => index,
+				"name" => disease,
+				"symptoms" => symptoms
+			}
+			diseases << disease
+		end
+		return diseases
+	end
+
+	def Record.listDiseasesJSON()
+		diseases = Record.listDiseases()
+
+		hash = {
+			"diseases" => diseases
+		}
+
+		return hash.to_json
+	end
+
+	def Record.listSymptomsJSON(id)
+		disease = Record.getDisease(id)
+		symptoms = Record.diseaseSymptoms(disease)
+		hash = {
+			"id" => id,
+			"disease" => disease,
+			"symptoms" => symptoms
+		}
+		return hash.to_json
+	end
+
 end
