@@ -230,7 +230,7 @@ class Record
 		diseases = []
 		file.each_line.with_index do |line, index|
 			disease = Record.getDisease(index)
-			symptoms = Record.diseaseSymptoms(name)
+			symptoms = Record.diseaseSymptoms(disease)
 			disease = {
 				"id" => index,
 				"name" => disease,
