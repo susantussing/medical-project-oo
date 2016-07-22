@@ -16,11 +16,12 @@ class Record
 		entries=[]
 		while (line=file.gets)
 			line = line.split(",")
-			if line[0]==name
+			if (line[0]==name)
 				entries[i]=[]
 				entries[i][0]=line[1]
 				entries[i][1]=line[2].split(";")
 				entries[i][2]=line[3]
+				entries[i][3]=line[0]
 				i+=1
 			end
 		end
@@ -223,5 +224,25 @@ class Record
 	def Record.numSymptoms()
 		file = File.open("symptoms.txt", "r")
 		return file.readlines.count
+	end
+
+	def Record.apiReturn(name)
+		records = Record.getRecords(name)
+		returnArr = []
+		i=0
+		for record in records
+			returnArr[i]={
+			"name" => "",
+			"date" => "",
+			"diagnosis" => "",
+			"symptoms" => []
+		}
+			returnArr[i]["name"] = records[i][3]
+			returnArr[i]["date"] = records[i][0]
+			returnArr[i]["diagnosis"] = records[i][2].chomp
+			returnArr[i]["symptoms"] = records[i][1]
+			i+=1
+		end
+		return returnArr
 	end
 end

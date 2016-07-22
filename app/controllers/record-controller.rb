@@ -26,3 +26,9 @@ MyApp.get "/records/save" do
   Record.saveRecord(@name, @diagnosis)
   erb :"records/save"
 end
+
+MyApp.get "/api/patient" do
+  name = params[:name]
+  info = Record.apiReturn(name)
+  info.to_json
+end
