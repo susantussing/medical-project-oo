@@ -247,7 +247,7 @@ class Record
 	end
 	# Get a list of all the diseases and their symptoms.
 	#
-	# Returns an array of the disease hashes
+	# Returns a hash of the diseases
 	def Record.listDiseases()
 		file = File.open("diseases.txt", "r")
 		diseases = []
@@ -261,28 +261,20 @@ class Record
 			}
 			diseases << disease
 		end
-		return diseases
-	end
-
-	# Return the diseases for the API in JSON
-	#
-	# Returns a JSON object with the diseases
-	def Record.listDiseasesJSON()
-		diseases = Record.listDiseases()
 
 		hash = {
 			"diseases" => diseases
 		}
 
-		return hash.to_json
+		return hash
 	end
 
 	# Returns the symptoms for a given disease in JSON
 	#
 	# id - the ID number of a given disease
 	#
-	# Returns a JSON object of the disease
-	def Record.listSymptomsJSON(id)
+	# Returns a hash of the disease
+	def Record.listSymptoms(id)
 		disease = Record.getDisease(id)
 		symptoms = Record.diseaseSymptoms(disease)
 		hash = {
@@ -290,6 +282,6 @@ class Record
 			"disease" => disease,
 			"symptoms" => symptoms
 		}
-		return hash.to_json
+		return hash
 	end
 end

@@ -2,12 +2,12 @@ require 'json'
 
 MyApp.get "/api/diseases" do
   content_type :json
-  Record.listDiseasesJSON
+  Record.listDiseases.to_json
 end
 
 MyApp.get "/api/diseases/:id" do
   content_type :json
-  Record.listSymptomsJSON(params[:id].to_i)
+  Record.listSymptoms(params[:id].to_i).to_json
 end 
 
 MyApp.get "/api/patient/:name" do
