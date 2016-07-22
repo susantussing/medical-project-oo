@@ -10,7 +10,7 @@ MyApp.get "/api/diseases/:id" do
   Record.listSymptomsJSON(params[:id].to_i)
 end 
 
-MyApp.get "/api/patient" do
+MyApp.get "/api/patient/:name" do
   content_type :json
   name = params[:name]
   info = Record.apiReturn(name)
