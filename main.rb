@@ -30,6 +30,12 @@ end
 
 require 'tilt/erb'
 
+if MyApp.settings.environment == :development
+  DB = SQLite3::Database.new "diagnosis.db"
+elsif MyApp.settings.environment == :test
+  DB = SQLite3::Database.new "diagnosis_test.db"
+end
+
 Dir[File.dirname(__FILE__) + '/app/models/*.rb'].each {|file| require file }
 
 Dir[File.dirname(__FILE__) + '/app/controllers/*.rb'].each {|file| require file }
