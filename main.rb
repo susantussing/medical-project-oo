@@ -35,6 +35,7 @@ if MyApp.settings.environment == :development
 elsif MyApp.settings.environment == :test
   DB = SQLite3::Database.new "diagnosis_test.db"
 end
+DB.results_as_hash = true
 
 Dir[File.dirname(__FILE__) + '/app/models/*.rb'].each {|file| require file }
 
