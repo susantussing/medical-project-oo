@@ -20,7 +20,7 @@ module InstanceMethodsORM
   end
 
   def delete
-    
+    DB.execute("DELETE FROM #{table} WHERE id = #{id}")
   end
 
   def columns
