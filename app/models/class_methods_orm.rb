@@ -24,9 +24,13 @@ module ClassMethodsORM
     where = search_array.join(" AND ")
 
     results = DB.execute("SELECT * FROM #{table} WHERE #{where}")
-    results.map! { |result| self.new(result)}
-    results
+    results.map { |result| self.new(result)}
+
   end
 
+  def all
+    results = DB.execute("SELECT * FROM #{table}")
+    results.map { |result| self.new(result)}
+  end
 
 end
