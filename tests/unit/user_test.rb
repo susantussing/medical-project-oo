@@ -46,4 +46,17 @@ class UserTest < Minitest::Test
     assert_equal(user2.name, "Jane")
   end
 
+  def test_user_all
+    names = ["Alice", "Bob", "Carlos", "Diana"]
+
+    names.each do |name|
+      User.new({"name" => name})
+    end
+
+    all = User.all
+
+    assert_equal(all.length, 4)
+    assert_equal(all[0].name, "Alice")
+  end
+
 end
