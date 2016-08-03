@@ -7,6 +7,7 @@
 
 class User
   include InstanceMethodsORM
+  extend ClassMethodsORM
   attr_reader :name, :id
 
   def initialize(hash=nil)
