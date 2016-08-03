@@ -28,6 +28,15 @@ class UserTest < Minitest::Test
     assert_equal(User.find(id), nil)
   end
 
+  def test_user_update
+    hash = {"name" => "Jane"}
+    user = User.new(hash)
+    hash2 = {"name" => "Janet"}
+    user.update(hash2)
+    assert_equal(user.name, "Janet")
+    assert_equal(User.where(hash)[0], nil)
+  end
+
   def test_user_find
     # Create a user who'll be assigned the ID of 1.  Find that user.
     hash = {"name" => "Jane"}

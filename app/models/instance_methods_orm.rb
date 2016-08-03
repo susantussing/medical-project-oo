@@ -41,7 +41,11 @@ module InstanceMethodsORM
   end
 
   def update(attributes)
-
+    attributes.each do |k, v|
+      instance_variable_set("@#{k}", v)
+    end
+    values = attributes.map { |k, v| "#{k}=#{escape(v)}"}.join(",")
+    DB.execute("UPDATE #{table} SET #{values} WHERE id=#{id}")
   end
 
 end
