@@ -4,6 +4,10 @@ module ClassMethodsORM
     name.downcase + "s"
   end
 
+  def escape(string)
+    SQLite3::Database.quote(string)
+  end
+
   def find(id)
     result = DB.execute("SELECT * FROM #{table} WHERE id = #{id}")[0]
     if result.nil?
