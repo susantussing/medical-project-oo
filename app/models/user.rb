@@ -4,7 +4,6 @@
 # name TEXT
 # );
 
-
 class User
   include InstanceMethodsORM
   extend ClassMethodsORM

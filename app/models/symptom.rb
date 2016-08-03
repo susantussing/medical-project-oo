@@ -5,12 +5,7 @@
 # question TEXT
 # );
 
-# CREATE TABLE disease_symptoms
-# (
-#   id INTEGER PRIMARY KEY,
-#   disease_id INTEGER,
-#   symptom_id INTEGER
-# );
+
 #
 # INSERT INTO symptoms (name, question)
 # VALUES
@@ -22,21 +17,14 @@
 # ("growth", "Do you have any abnormal growths or moles on your skin?"),
 # ("aura", "Do you have visual disturbances or see an aura around objects?");
 
-# INSERT INTO disease_symptoms (disease_id, symptom_id)
-# VALUES
-# (1, 1),
-# (1, 4),
-# (2, 1),
-# (2, 5),
-# (3, 2),
-# (3, 4),
-# (4, 2),
-# (4, 7),
-# (5, 6),
-# (6, 3),
-# (6, 4);
 
-class Symptoms
+class Symptom
+  include InstanceMethodsORM
+  extend ClassMethodsORM
+  attr_reader :name, :id
 
-
+  def initialize(hash)
+    @id = hash["id"]
+    @name = hash["name"]
+  end
 end
