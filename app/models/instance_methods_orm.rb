@@ -25,7 +25,7 @@ module InstanceMethodsORM
     end
   end
 
-  # Gets the name of the table for a given class.
+  # Gets the name of the table for a given instance
   # Kind of a hacky way to pluralize.
   #
   # Returns a String of the table name.
