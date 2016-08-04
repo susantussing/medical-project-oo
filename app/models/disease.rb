@@ -28,7 +28,7 @@ class Disease
   end
 
   def symptoms
-    Disease_Symptom.where({"disease_id" => @id})
+    Disease_Symptom.where({"disease_id" => @id}).map{ |x| x.obj }
   end
 
 end

@@ -20,9 +20,7 @@ class DiseaseTest < Minitest::Test
   def test_disease_symptoms
     lung_cancer = Disease.find(1)
 
-    lung_cancer.symptoms.each do |symptom|
-      puts symptom.obj.name
-    end
+    assert_equal(lung_cancer.symptoms[0].name, "cough")
   end
 
 end
