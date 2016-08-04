@@ -21,10 +21,11 @@
 class Symptom
   include InstanceMethodsORM
   extend ClassMethodsORM
-  attr_reader :name, :id
+  attr_reader :name, :id, :question
 
   def initialize(hash)
     @id = hash["id"]
     @name = hash["name"]
+    @question = hash["question"]
   end
 end
