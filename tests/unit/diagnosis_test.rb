@@ -17,4 +17,12 @@ class DiagnosisTest < Minitest::Test
     assert_equal(diagnosis.time, now)
     assert_equal(diagnosis.disease.class, Disease)
   end
+
+  def test_diagnose
+    cough = Symptom.find(1)
+    fatigue = Symptom.find(4)
+    symptoms = [cough, fatigue]
+    diagnosis = Diagnosis.diagnose(symptoms)
+    assert_equal(diagnosis.disease.name, "lung cancer")
+  end
 end

@@ -40,4 +40,14 @@ class Diagnosis
     Disease.find(@disease_id)
   end
 
+  # Create a diagnosis if the symptoms match.
+  #
+  # symptoms - an array of symptom objects
+  #
+  # Returns a Diagnosis if available, or nil if not.
+  def self.diagnose(symptoms)
+
+
+  end
+
 end
