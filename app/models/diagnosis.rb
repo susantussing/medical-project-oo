@@ -52,11 +52,14 @@ class Diagnosis
   # Returns an array of Diagnosis objects, or an empty array if none
   def self.diagnose(user_id, symptoms)
     now = Time.now.to_i
+    # Get the ID numbers of the user's symptoms.
     symptom_ids = symptoms.map { |x| x.id }
     diagnoses = []
     Disease.all.each do |disease|
+      # For each disease, get the ID numbers of its symptoms.
       disease_symptom_ids = disease.symptoms.map{|x| x.id}
       if disease_symptom_ids - symptom_ids == []
+        # If all the disease symptoms are included in the user's symptoms, create a new diagnosis and add it to the array.
         diagnoses << Diagnosis.new({"user_id" => user_id, "disease_id" => disease.id, "time" => now})
       end
     end
