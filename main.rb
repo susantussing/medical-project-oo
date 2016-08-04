@@ -22,6 +22,7 @@ require 'sinatra/reloader'
 require 'sinatra/base'
 class MyApp < Sinatra::Base
   register Sinatra::Reloader
+  register Sinatra::MultiRoute
   set :sessions, true
   set :bind, '0.0.0.0'
   set :show_exceptions, true
