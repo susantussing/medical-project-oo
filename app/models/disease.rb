@@ -14,7 +14,7 @@
 # ("skin cancer"),
 # ("lupus");
 
-# For some reason necessary in this class.
+# Needs to be required in the first class to load this because the alphabet, apparently.
 require_relative 'instance_methods_orm'
 
 class Disease
