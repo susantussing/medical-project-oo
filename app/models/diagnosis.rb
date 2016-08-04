@@ -14,6 +14,8 @@ class Diagnosis
   extend ClassMethodsORM
   attr_reader :user_id, :diagnosis_id, :time
 
+  # Of course this has a non-standard plural.
+  # Override the table names for both the class and instances.
   def table
     "diagnoses"
   end
@@ -36,6 +38,9 @@ class Diagnosis
     end
   end
 
+  # Get the disease for this diagnosis.
+  # 
+  # Returns a Disease object.
   def disease
     Disease.find(@disease_id)
   end
@@ -44,10 +49,18 @@ class Diagnosis
   #
   # symptoms - an array of symptom objects
   #
-  # Returns a Diagnosis if available, or nil if not.
-  def self.diagnose(symptoms)
-
-
+  # Returns an array of Diagnosis objects, or an empty array if none
+  def self.diagnose(user_id, symptoms)
+    now = Time.now.to_i
+    symptom_ids = symptoms.map { |x| x.id }
+    diagnoses = []
+    Disease.all.each do |disease|
+      disease_symptom_ids = disease.symptoms.map{|x| x.id}
+      if disease_symptom_ids - symptom_ids == []
+        diagnoses << Diagnosis.new({"user_id" => user_id, "disease_id" => disease.id, "time" => now})
+      end
+    end
+    diagnoses
   end
 
 end

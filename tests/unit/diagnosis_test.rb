@@ -19,10 +19,12 @@ class DiagnosisTest < Minitest::Test
   end
 
   def test_diagnose
+    user_id = 1
     cough = Symptom.find(1)
+    headache = Symptom.find(2)
     fatigue = Symptom.find(4)
-    symptoms = [cough, fatigue]
-    diagnosis = Diagnosis.diagnose(symptoms)
-    assert_equal(diagnosis.disease.name, "lung cancer")
+    symptoms = [cough, headache, fatigue]
+    diagnoses = Diagnosis.diagnose(user_id, symptoms)
+    assert_equal(diagnoses[0].disease.name, "lung cancer")
   end
 end

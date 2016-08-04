@@ -24,6 +24,9 @@ class Disease
     @name = hash["name"]
   end
 
+  # Get the symptoms for this disease.
+  #
+  # Returns an array of Symptom objects.
   def symptoms
     Disease_Symptom.where({"disease_id" => @id}).map{ |x| x.obj }
   end
