@@ -2,7 +2,9 @@
 <!-- <p>Last answer was: <%= @answer %></p> -->
 <div class="question">
 <form method="post" action="/diagnosis">
-  <!-- <p>Answers: <%= @answers.to_s %></p> -->
+  <p>Symptoms: <%= unless @user.symptoms[0].nil? 
+    @user.symptoms.map { |x| x.name }.join(" ") 
+    end %></p>
   <p class="question__text"><!-- <%= @question %>. --><%= @question_text %></p>
   <div class="question__radiogroup">
     <input type="radio" name="answer" value="yes" class="question__radio" id="yes" required>
